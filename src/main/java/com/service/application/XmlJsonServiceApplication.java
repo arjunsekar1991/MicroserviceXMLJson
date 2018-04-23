@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages="com.service.rest")
+@ComponentScan(basePackages = "com.service.rest")
 public class XmlJsonServiceApplication {
 
 	public static void main(String[] args) {

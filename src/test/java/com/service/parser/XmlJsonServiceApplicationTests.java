@@ -10,7 +10,7 @@ import com.service.application.XmlJsonServiceApplication;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@ContextConfiguration(classes=XmlJsonServiceApplication.class)
+@ContextConfiguration(classes = XmlJsonServiceApplication.class)
 public class XmlJsonServiceApplicationTests {
 
 	@Test
