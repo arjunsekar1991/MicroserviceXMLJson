@@ -16,6 +16,7 @@ public class ServiceController {
 	@PostMapping(value = "/data", produces = { "application/xml", "application/json" }, consumes = { "application/xml",
 			"application/json" })
 	public String parserMethod(@RequestBody String a) {
+		
 		return a;
 	}
 }
