@@ -3,6 +3,11 @@ package com.service.rest;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.process.helper.AnnuityProcessBuilder;
+import com.process.helper.ExchangeProcessBuilder;
+import com.process.helper.ProcessBuilderService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
@@ -18,5 +23,30 @@ public class ServiceController {
 	public String parserMethod(@RequestBody String a) {
 		
 		return a;
+	}
+	@GetMapping(value = "/startProcess")
+	public String startProcess() {
+		String processType = "exchange";
+		// if()
+		ProcessBuilderService pbs=null;
+		if (processType.equalsIgnoreCase("annuity")) {
+			pbs = new AnnuityProcessBuilder("arjun");
+			((AnnuityProcessBuilder) pbs).setFinancialRepresentativeId("123");
+			((AnnuityProcessBuilder) pbs).setProcessKey("annuity");
+			System.out.println(((AnnuityProcessBuilder) pbs).getFinancialRepresentativeId());
+			System.out.println(((AnnuityProcessBuilder) pbs).getFinancialRepresentativeName());
+			System.out.println(((AnnuityProcessBuilder) pbs).getProcessKey());
+		} 
+		if (processType.equalsIgnoreCase("exchange")) {
+			pbs = new ExchangeProcessBuilder();
+			((ExchangeProcessBuilder) pbs).setProcessKey("exchange");
+			((ExchangeProcessBuilder) pbs).setServiceRequestNumber("8973894797");
+			System.out.println(((ExchangeProcessBuilder) pbs).getServiceRequestNumber());
+			System.out.println(((ExchangeProcessBuilder) pbs).getProcessKey());
+		} else {
+			//return new JMSService();
+		}
+		System.out.println( pbs.getProcessKey());
+		return "helloworld";
 	}
 }
