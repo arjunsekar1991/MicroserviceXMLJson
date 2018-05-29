@@ -8,6 +8,8 @@ import com.process.helper.AnnuityProcessBuilder;
 import com.process.helper.ExchangeProcessBuilder;
 import com.process.helper.ProcessBuilderService;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
@@ -25,8 +27,7 @@ public class ServiceController {
 		return a;
 	}
 	@GetMapping(value = "/startProcess")
-	public String startProcess() {
-		String processType = "exchange";
+	public String startProcess(@PathParam("processType") String processType) {
 		// if()
 		ProcessBuilderService pbs=null;
 		if (processType.equalsIgnoreCase("annuity")) {
