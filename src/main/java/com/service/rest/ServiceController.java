@@ -46,6 +46,7 @@ public class ServiceController {
 			System.out.println(((ExchangeProcessBuilder) pbs).getProcessKey());
 		} else {
 			//return new JMSService();
+			return "invalid process type";
 		}
 		System.out.println( pbs.getProcessKey());
 		return "helloworld";
