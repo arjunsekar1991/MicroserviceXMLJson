@@ -24,7 +24,9 @@ public class ServiceController {
 	@PostMapping(value = "/data", produces = { "application/xml", "application/json" }, consumes = { "application/xml",
 			"application/json" })
 	public AnnuityHelper parserMethod(@RequestBody AnnuityHelper a) {
-		System.out.println(a.getMydata().get());
+		//System.out.println(a.getMydata().get());
+//{		"mydata":"test",		"mydata2": "rest",		"multiple": ["John", "Peter"]		}
+		System.out.println(a.getMultiple().toString());
 		return a;
 	}
 	@GetMapping(value = "/startProcess")
