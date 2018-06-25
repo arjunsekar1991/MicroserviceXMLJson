@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.process.helper.AnnuityProcessBuilder;
 import com.process.helper.ExchangeProcessBuilder;
 import com.process.helper.ProcessBuilderService;
+import com.process.pojo.AnnuityHelper;
 
 import javax.websocket.server.PathParam;
 
@@ -22,8 +23,8 @@ public class ServiceController {
 
 	@PostMapping(value = "/data", produces = { "application/xml", "application/json" }, consumes = { "application/xml",
 			"application/json" })
-	public String parserMethod(@RequestBody String a) {
-		
+	public AnnuityHelper parserMethod(@RequestBody AnnuityHelper a) {
+		System.out.println(a.getMydata().get());
 		return a;
 	}
 	@GetMapping(value = "/startProcess")
